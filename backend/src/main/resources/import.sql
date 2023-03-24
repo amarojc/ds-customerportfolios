@@ -1,0 +1,11 @@
+insert into tb_client (name, cpf, income,birth_date, children, created_at) values('Pedro de Lara Santos', '58455629029', 4500., TIMESTAMP WITHOUT TIME ZONE '1942-04-08T13:00:00Z', 5, NOW());
+insert into tb_client (name, cpf, income,birth_date, children, created_at) values('Silvio Santos Abravanel', '91220411094', 16000., TIMESTAMP WITHOUT TIME ZONE '1955-12-25T00:00:00Z', 4, NOW());
+insert into tb_client (name, cpf, income,birth_date, children, created_at) values('Jó Soares Fernandes', '24697424042', 9500., TIMESTAMP WITHOUT TIME ZONE '1979-03-15T20:20:01Z', 1, NOW());
+insert into tb_client (name, cpf, income,birth_date, children, created_at) values('Maria Benta das Flores', '97001383058', 10500., TIMESTAMP WITHOUT TIME ZONE '1963-07-24T18:10:20Z', 7, NOW());
+insert into tb_client (name, cpf, income,birth_date, children, created_at) values('Raimunda Moraes de Carneiros', '91053001002', 3500., TIMESTAMP WITHOUT TIME ZONE '1942-04-08T13:00:00Z', 3, NOW());
+insert into tb_client (name, cpf, income,birth_date, children, created_at) values('José Francisco de Assis', '99567996024', 2500., TIMESTAMP WITHOUT TIME ZONE '1986-05-05T22:00:03Z', 2, NOW());
+insert into tb_client (name, cpf, income,birth_date, children, created_at) values('Carlos de Nobrega Antunes', '07112164010', 3700., TIMESTAMP WITHOUT TIME ZONE '1983-10-18T23:00:00Z', 2, NOW());
+insert into tb_client (name, cpf, income,birth_date, children, created_at) values('Tatiane Silva e Silva', '12014243050', 4250., TIMESTAMP WITHOUT TIME ZONE '1984-06-03T21:00:00Z', 2, NOW());
+insert into tb_client (name, cpf, income,birth_date, children, created_at) values('Daniel de Jesus de Carvalho', '63516412097', 5500., TIMESTAMP WITHOUT TIME ZONE '1980-09-29T18:00:00Z', 0, NOW());
+insert into tb_client (name, cpf, income,birth_date, children, created_at) values('Maria Joaquina de Mendonça', '90879644044', 1900., TIMESTAMP WITHOUT TIME ZONE '1984-11-21T17:00:00Z', 1, NOW());
+insert into tb_client (name, cpf, income,birth_date, children, created_at) values('Angelina das Graças Lopes', '38141361015', 3800., TIMESTAMP WITHOUT TIME ZONE '1972-04-23T20:00:00Z', 3, NOW());
