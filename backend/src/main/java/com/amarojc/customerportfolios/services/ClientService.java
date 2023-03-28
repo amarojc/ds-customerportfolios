@@ -2,6 +2,8 @@ package com.amarojc.customerportfolios.services;
 
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -38,6 +40,19 @@ public class ClientService {
 		copyDtoToEntity(clientDTO, client);
 		client = clientRepository.save(client);
 		return new ClientDTO(client);
+	}
+	
+	@Transactional
+	public ClientDTO updateClient(Long id, ClientDTO clientDTO) {
+		try {
+			Client client = clientRepository.getReferenceById(id);
+			copyDtoToEntity(clientDTO, client);
+			client = clientRepository.save(client);
+			
+			return new ClientDTO(client);
+		}catch(EntityNotFoundException ex) {
+			throw new ObjectNotFoundException("Client not found: " + id);
+		}
 	}
 	
 	private void copyDtoToEntity(ClientDTO dto, Client client) {

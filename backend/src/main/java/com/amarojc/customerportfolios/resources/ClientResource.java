@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,5 +54,10 @@ public class ClientResource {
 					.buildAndExpand(clientDTO.getId()).toUri();
 					
 		return ResponseEntity.created(uri).body(clientDTO);
+	}
+	
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<ClientDTO> updateClient(@PathVariable Long id, @RequestBody ClientDTO clientDTO){
+		return ResponseEntity.ok().body(clientService.updateClient(id, clientDTO));
 	}
 }
