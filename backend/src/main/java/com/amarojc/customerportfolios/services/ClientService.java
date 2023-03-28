@@ -5,6 +5,8 @@ import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.amarojc.customerportfolios.dtos.ClientDTO;
 import com.amarojc.customerportfolios.entities.Client;
 import com.amarojc.customerportfolios.repositories.ClientRepository;
+import com.amarojc.customerportfolios.services.exceptions.DatabaseIntegrityViolationException;
 import com.amarojc.customerportfolios.services.exceptions.ObjectNotFoundException;
 
 @Service
@@ -52,6 +55,16 @@ public class ClientService {
 			return new ClientDTO(client);
 		}catch(EntityNotFoundException ex) {
 			throw new ObjectNotFoundException("Client not found: " + id);
+		}
+	}
+	
+	public void deleteClient(Long id) {
+		try {
+			clientRepository.deleteById(id);
+		}catch(EmptyResultDataAccessException ex) {
+			throw new ObjectNotFoundException("Client not found: " + id);
+		}catch(DataIntegrityViolationException dx) {
+			throw new DatabaseIntegrityViolationException("Integrity violation");
 		}
 	}
 	
